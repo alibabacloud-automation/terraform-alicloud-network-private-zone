@@ -1,20 +1,18 @@
 Alibaba Cloud Private Zone Terraform Module
 
-# terraform-alicloud-private-zone
+# terraform-alicloud-pvtz
 
-English | [简体中文](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/blob/main/README-CN.md)
+English | [简体中文](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/blob/main/README-CN.md)
 
-Terraform module which creates [Private Zone](https://www.alibabacloud.com/help/en/private-zone/) resources on Alibaba Cloud.
-
-This module provides a simple and flexible way to manage private DNS zones and records on Alibaba Cloud. It supports creating Private Zones, attaching them to VPCs, and managing various DNS record types (A, CNAME, MX, TXT, SRV, PTR) through a unified interface.
+Terraform module which creates [Private Zone](https://www.alibabacloud.com/help/en/private-zone/) resources on Alibaba Cloud. This module provides a simple and flexible way to manage private DNS zones and records on Alibaba Cloud. It supports creating Private Zones, attaching them to VPCs, and managing various DNS record types (A, CNAME, MX, TXT, SRV, PTR) through a unified interface.
 
 ## Usage
 
 Create a Private Zone with DNS records and VPC attachment.
 
 ```terraform
-module "private_zone" {
-  source  = "alibabacloud-automation/private-zone/alicloud"
+module "pvtz" {
+  source  = "alibabacloud-automation/pvtz/alicloud"
 
   domain_name = "example.internal"
 
@@ -31,17 +29,13 @@ module "private_zone" {
       value = "10.0.1.10"
     }
   }
-
-  tags = {
-    Environment = "production"
-  }
 }
 ```
 
 ## Examples
 
-* [Basic Example](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/tree/main/examples/basic)
-* [Advanced Example](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/tree/main/examples/advanced)
+* [Basic Example](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/tree/main/examples/basic)
+* [Advanced Example](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/tree/main/examples/advanced)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -55,7 +49,7 @@ module "private_zone" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | 1.272.1 |
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | >= 1.200.0 |
 
 ## Modules
 

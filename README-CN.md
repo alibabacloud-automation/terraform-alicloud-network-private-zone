@@ -1,20 +1,18 @@
 阿里云 Private Zone Terraform 模块
 
-# terraform-alicloud-private-zone
+# terraform-alicloud-pvtz
 
-[English](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/blob/main/README.md) | 简体中文
+[English](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/blob/main/README.md) | 简体中文
 
-在阿里云上创建和管理 [Private Zone](https://www.aliyun.com/product/pvtz) 资源的 Terraform 模块。
-
-本模块提供了一种简单灵活的方式来管理阿里云上的私有 DNS 区域和记录。支持创建 Private Zone、关联 VPC，以及通过统一接口管理多种 DNS 记录类型（A、CNAME、MX、TXT、SRV、PTR）。
+在阿里云上创建和管理 [Private Zone](https://www.aliyun.com/product/pvtz) 资源的 Terraform 模块。本模块提供了一种简单灵活的方式来管理阿里云上的私有 DNS 区域和记录。支持创建 Private Zone、关联 VPC，以及通过统一接口管理多种 DNS 记录类型（A、CNAME、MX、TXT、SRV、PTR）。
 
 ## 使用方法
 
 创建一个带有 DNS 记录和 VPC 关联的 Private Zone。
 
 ```terraform
-module "private_zone" {
-  source  = "alibabacloud-automation/private-zone/alicloud"
+module "pvtz" {
+  source  = "alibabacloud-automation/pvtz/alicloud"
 
   domain_name = "example.internal"
 
@@ -31,17 +29,13 @@ module "private_zone" {
       value = "10.0.1.10"
     }
   }
-
-  tags = {
-    Environment = "production"
-  }
 }
 ```
 
 ## 示例
 
-* [基础示例](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/tree/main/examples/basic)
-* [高级示例](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/tree/main/examples/advanced)
+* [基础示例](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/tree/main/examples/basic)
+* [高级示例](https://github.com/alibabacloud-automation/terraform-alicloud-pvtz/tree/main/examples/advanced)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -55,7 +49,7 @@ module "private_zone" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | 1.272.1 |
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | >= 1.200.0 |
 
 ## Modules
 
